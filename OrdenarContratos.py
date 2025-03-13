@@ -9,7 +9,7 @@ def ordenar_contratos(contratos):
         while actual:
             nivel += 1
             actual = dependencia_map.get(actual, {}).get("dependencias")
-        return nive
+        return nivel
     
     for contrato in contratos:
         contrato["nivel_dependencia"] = get_dependency_level(contrato)
