@@ -17,3 +17,16 @@ def ordenar_contratos(contratos):
     contratos.sort(key=lambda c: (c["nivel_dependencia"], c["tipo"]))
     
     return contratos
+    
+contratos = [
+    {"numero": "C001", "tipo": "Compra", "dependencias": None},
+    {"numero": "C002", "tipo": "Alquiler", "dependencias": None},
+    {"numero": "C003", "tipo": "Mantenimiento", "dependencias": "C001"},
+    {"numero": "C004", "tipo": "Alquiler", "dependencias": "C002"},
+    {"numero": "C005", "tipo": "Alquiler", "dependencias": "C003"},
+    {"numero": "C006", "tipo": "Mantenimiento", "dependencias": "C002"},
+    {"numero": "C007", "tipo": "Mantenimiento", "dependencias": None}
+]
+
+contratos_ordenados = ordenar_contratos(contratos)
+print(json.dumps(contratos_ordenados, indent=4, ensure_ascii=False))
